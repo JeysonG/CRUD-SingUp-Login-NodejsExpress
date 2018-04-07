@@ -1,0 +1,27 @@
+doctype html
+html
+    head
+        title Knowledgebase
+        link(rel="stylesheet", href="/style/style.css")
+    body
+        a(href="/")
+         input.btn.btn-primary(type="button", value='Home')
+        a(href="/articles/add")
+         input.btn.btn-primary(type="button", value='Add Article') 
+        a(href="/users/register")
+         input.btn.btn-primary(id="reg", type="button", value='Register')
+        a(href="/users/login")
+         input.btn.btn-primary(type="button", value='Login') 
+        #container
+            if errors
+                each error, i in errors
+                  #divalert
+                   div
+                     h6 #{error.msg}
+            block content
+            br
+            hr
+            footer
+            p Copyright &copy; 2018
+        script(src="/jquery/jquery-3.1.1.min.js")
+        script(src="/js/main.js")

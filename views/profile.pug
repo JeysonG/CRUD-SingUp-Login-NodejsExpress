@@ -1,0 +1,24 @@
+doctype html
+html
+    head
+        title Profile Page
+        link(rel="stylesheet", href="/style/style.css")
+    body
+      #headus
+        div
+          h1 WelCOME User
+      center
+        a(href="/logout") 
+          input(type="button", value="Logout")
+
+          p Id: 
+          h5= user._id
+
+          p Name: 
+          h5= user.name
+
+          p Email: 
+          h5= user.email
+
+          p UserName: 
+          h5= user.username

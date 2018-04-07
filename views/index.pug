@@ -1,0 +1,10 @@
+extends layout
+
+block content
+    != messages('messageinf.pug', locals)
+    h1 #{title}
+        ul
+        each article, i in articles
+            #item
+                div 
+                    a(href="/articles/"+article._id)=  article.title
