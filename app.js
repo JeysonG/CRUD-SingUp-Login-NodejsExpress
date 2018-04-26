@@ -7,6 +7,8 @@ const flash = require('connect-flash');
 const session = require('express-session');
 const passport = require('passport');
 const cookieparser = require('cookie-parser');
+//20 abril
+let logistica = require('./logistica')('Yucas la 4');
 
 mongoose.connect('mongodb://localhost/nodekb');
 let db = mongoose.connection;
@@ -14,6 +16,21 @@ let db = mongoose.connection;
 require('./config/passport')(passport);
 
 const app = express();
+
+//21 abril
+app.get("/nuclear", (req, res) => {
+    
+    let estadoEmpaquetar = logistica.estadoEmpaquetar();
+
+    if(estadoEmpaquetar.funciona){
+
+        res.json(logistica.empaquetar(60));
+
+    }
+    else{
+        res.json({"error": true, "descripcion": estadoEmpaquetar.descripcion});
+    }
+});
 
 app.use(cookieparser());
 
